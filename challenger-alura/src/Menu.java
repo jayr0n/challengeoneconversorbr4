@@ -3,13 +3,15 @@ import javax.swing.JOptionPane;
 
 public class Menu {
 	public static double valor = 0;
+	public static String escolha;
 
 	public void devolve() {
+		
 		String[] opcoes = { "Converter Moedas", "Converter Temperaturas" };
 
-		String escolha = (String) JOptionPane.showInputDialog(null, "Escolha uma opção:", "Conversor",
+		String escolha = (String) JOptionPane.showInputDialog(null, "Escolha uma opÃ§Ã£o:", "Conversor",
 				JOptionPane.PLAIN_MESSAGE, null, opcoes, opcoes[0]);
-
+		Menu.escolha = escolha;
 		if (escolha.equals("Converter Moedas")) {
 			String valorStr = JOptionPane.showInputDialog(null, "Digite o valor em reais a ser convertido:",
 					"Conversor", JOptionPane.PLAIN_MESSAGE);
@@ -17,7 +19,7 @@ public class Menu {
 			try {
 				valor = Double.parseDouble(valorStr);
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Valor invalido. Por favor, digite um valor numérico.", "Conversor",
+				JOptionPane.showMessageDialog(null, "Valor invalido. Por favor, digite um valor numÃ©rico.", "Conversor",
 						JOptionPane.ERROR_MESSAGE);
 				devolve();
 				;
@@ -33,7 +35,7 @@ public class Menu {
 			try {
 				valor = Double.parseDouble(valorStr);
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Valor invalido. Por favor, digite um valor numérico.", "Conversor",
+				JOptionPane.showMessageDialog(null, "Valor invalido. Por favor, digite um valor numÃ©rico.", "Conversor",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			}
