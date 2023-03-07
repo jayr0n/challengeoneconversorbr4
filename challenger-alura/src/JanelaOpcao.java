@@ -8,26 +8,26 @@ public class JanelaOpcao extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public JanelaOpcao() {
-		super("Janela de opÁıes");
+		super("Janela de op√ß√µes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400, 150);
 		setResizable(false);
 		setLocationRelativeTo(null);
 
-		// Cria um rÛtulo para o texto "Deseja continuar?"
+		// Cria um r√≥tulo para o texto "Deseja continuar?"
 		JLabel lblPergunta = new JLabel("Deseja continuar?");
 		lblPergunta.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// Cria um painel para os botıes e define um layout de FlowLayout com
-		// alinhamento ‡ esquerda
+		// Cria um painel para os bot√µes e define um layout de FlowLayout com
+		// alinhamento √† esquerda
 		JPanel panelBotoes = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-		// Cria os botıes "Sim", "N„o" e "Cancelar"
+		// Cria os bot√µes "Sim", "N√£o" e "Cancelar"
 		JButton btnSim = new JButton("Sim");
-		JButton btnNao = new JButton("N„o");
+		JButton btnNao = new JButton("N√£o");
 		JButton btnCancelar = new JButton("Cancelar");
 
-		// Adiciona um ActionListener para cada bot„o
+		// Adiciona um ActionListener para cada bot√£o
 		btnSim.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -51,26 +51,30 @@ public class JanelaOpcao extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				new Menu();
-				new ConverterTemperatura(Menu.valor);
+				if(Menu.escolha.equals("Converter Moedas")) {
+					new ConverterMoeda(Menu.valor);
+				} else if((Menu.escolha.equals("Converter Temperaturas"))){
+					new ConverterTemperatura(Menu.valor);
+				}
 
 			}
 		});
 
-		// Adiciona os botıes ao painel de botıes
+		// Adiciona os bot√µes ao painel de bot√µes
 		panelBotoes.add(btnSim);
 		panelBotoes.add(btnNao);
 		panelBotoes.add(btnCancelar);
 
-		// Cria um painel para o rÛtulo e o painel de botıes e define um layout de
+		// Cria um painel para o r√≥tulo e o painel de bot√µes e define um layout de
 		// BorderLayout
 		JPanel panelPrincipal = new JPanel(new BorderLayout());
 		panelPrincipal.add(lblPergunta, BorderLayout.CENTER);
 		panelPrincipal.add(panelBotoes, BorderLayout.SOUTH);
 
-		// Adiciona o painel principal ‡ janela
+		// Adiciona o painel principal √† janela
 		getContentPane().add(panelPrincipal);
 
-		// Torna a janela visÌvel
+		// Torna a janela vis√≠vel
 		setVisible(true);
 	}
 }
